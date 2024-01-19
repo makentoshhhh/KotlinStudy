@@ -2,22 +2,14 @@ fun main() {
     val z:Int = readLine()!!.toInt()
     val y:String = readLine()!!
     val x:Int = readLine()!!.toInt()
-    if (y == "+"){
-        val zx:Int = z + x
-        println(zx)
+when(y){
+    "+" -> { var r = z+x
+        print("$z + $x = ${z+x}")
     }
-    if (y == "-"){
-        val zx:Int = z - x
-        println(zx)
-    }
-    if (y == "*"){
-        val zx:Int = z * x
-        println(zx)
-    }
-    if (y == "/"){
-        val zx:Float = z.toFloat() / x
-        println(zx)
-    }
-
+    "-" -> print("$z + $x = ${z-x}")
+    "*" -> print("$z + $x = ${z*x}")
+    "/" -> print("$z + $x = ${z/x}")
+else -> print("Введено не коректное число")
+}
 
 }
