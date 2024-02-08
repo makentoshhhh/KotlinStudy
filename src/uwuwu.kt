@@ -1,6 +1,5 @@
-//fun main() {
-    //uw()
-
+///fun main() {
+    ///uw()
 
 fun calculate(num1:Int, num2: Int, operand: String){
     when(operand) {
@@ -30,7 +29,19 @@ fun task2(){
 }
 fun poisk(){
     val a:MutableList <Int> = mutableListOf()
-    a.add()
 
+
+
+}
+fun trichisla(){
+    for (i in 100..999){
+        var one = i / 100
+        var three = i % 10
+        var two = i / 10
+        two = two % 10
+        if (one != two && two != three && three != one){
+            println(i)
+        }
+    }
 
 }
