@@ -45,3 +45,47 @@ fun trichisla(){
     }
 
 }
+import java.io.File
+
+fun main() {
+    println("Введите число студентов:")
+    val numStudents = readLine()?.toIntOrNull() ?: 0
+
+    val students = mutableListOf<Student>()
+    repeat(numStudents) {
+        println("Введите данные студента №${it+1}:")
+        val name = readLine() ?: ""
+        val age = readLine()?.toIntOrNull() ?: 0
+        students.add(Student(name, age))
+    }
+
+    File("students.csv").printWriter().use { out ->
+        out.println("Name,Age")
+        students.forEach { student ->
+            out.println("${student.name},${student.age}")
+        }
+    }
+
+    println("Введите число преподавателей:")
+    val numProfessors = readLine()?.toIntOrNull() ?: 0
+
+    val professors = mutableListOf<Professor>()
+    repeat(numProfessors) {
+        println("Введите данные преподавателя №${it+1}:")
+        val name = readLine() ?: ""
+        val subject = readLine() ?: ""
+        professors.add(Professor(name, subject))
+    }
+
+    File("professors.csv").printWriter().use { out ->
+        out.println("Name,Subject")
+        professors.forEach { professor ->
+            out.println("${professor.name},${professor.subject}")
+        }
+    }
+
+    println("Файлы успешно созданы.")
+}
+
+data class Student(val name: String, val age: Int)
+data class Professor(val name: String, val subject: String)
